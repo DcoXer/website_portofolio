@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://web-porto.vercel.app" target="_blank"><b>🔗 Live Demo</b></a> •
+  <a href="https://website-portofolio-kappa-six.vercel.app" target="_blank"><b>🔗 Live Demo</b></a> •
   <a href="#-features"><b>✨ Features</b></a> •
   <a href="#-installation"><b>🛠️ Usage</b></a> •
   <a href="#-deployment"><b>🚀 Deployment</b></a> •

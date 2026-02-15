@@ -6,7 +6,6 @@
     <title>Portfolio Firzi </title>
     <link rel="stylesheet" href="assets/app-b481d50e.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
     <style>
@@ -95,7 +94,7 @@
       }
 
       /* Smooth Lazy Load */
-      .lazy-card {
+      /* .lazy-card {
         opacity: 0;
         transform: translateY(40px);
         transition: opacity 0.7s ease, transform 0.7s ease;
@@ -104,7 +103,7 @@
       .lazy-card.visible {
         opacity: 1;
         transform: translateY(0);
-      }
+      } */
 
       /* Magnetic Cursor Effect */
       .magnetic {
@@ -355,7 +354,6 @@
 
     <!-- About Section -->
     <section id="about" class="section-gradient-1 relative overflow-hidden py-24">
-      <canvas id="particleCanvas"></canvas>
       <div class="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 md:flex-row">
         <div class="flex justify-center md:w-1/2" data-aos="fade-right">
           <div class="relative bg-transparent h-80 flex items-end justify-center">
@@ -389,7 +387,7 @@
         <p class="mb-12 text-center text-lg text-gray-400">Showcase beberapa project terbaik saya</p>
         
         <div class="project-grid">
-          <div class="project-card lazy-card group rounded-2xl shadow-lg backdrop-blur-md transition hover:shadow-2xl">
+          <div class="project-card group rounded-2xl shadow-lg backdrop-blur-md transition hover:shadow-2xl">
             <div class="relative bg-gradient-to-br from-blue-400 to-indigo-600 h-48">
               <img src="./images/my_foto.jpg" alt="Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition duration-500" />
             </div>
@@ -400,7 +398,7 @@
             </div>
           </div>
 
-          <div class="project-card lazy-card group rounded-2xl shadow-lg backdrop-blur-md transition hover:shadow-2xl">
+          <div class="project-card group rounded-2xl shadow-lg backdrop-blur-md transition hover:shadow-2xl">
             <div class="relative bg-gradient-to-br from-emerald-400 to-teal-600 h-48">
               <img src="./images/my_foto.jpg" alt="Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition duration-500" />
             </div>
@@ -411,7 +409,7 @@
             </div>
           </div>
 
-          <div class="project-card lazy-card group rounded-2xl shadow-lg backdrop-blur-md transition hover:shadow-2xl">
+          <div class="project-card group rounded-2xl shadow-lg backdrop-blur-md transition hover:shadow-2xl">
             <div class="relative bg-gradient-to-br from-purple-400 to-pink-600 h-48">
               <img src="./images/my_foto.jpg" alt="Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition duration-500" />
             </div>

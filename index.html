@@ -261,12 +261,12 @@
     <!-- Hero Section -->
     <section class="gradient-animate relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-20 text-center">
       <h2 id="heroTitle" class="text-5xl font-extrabold text-gray-900 drop-shadow-sm md:text-7xl">
-        Hi, I'm Your Name
+        Hi, Firzi Fathir Mas'ud
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-lg text-gray-600 md:text-xl">
-        Web Developer | Laravel Enthusiast | Tech Explorer
+        Web Developer (Newbie) | Laravel Enthusiast | Tech Explorer
       </p>
-      <a href="#projects" class="magnetic relative z-10 mt-8 inline-block rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition hover:scale-105 hover:shadow-xl md:text-lg">
+      <a href="#projects" class="magnetic relative z-10 mt-8 inline-block rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-3 text-base font-semibold text-slate-800 shadow-lg transition hover:scale-105 hover:shadow-xl md:text-lg">
         Jelajahi Semua Karya & Proyek Kreatif Saya →
       </a>
     </section>
@@ -283,7 +283,7 @@
         <div class="md:w-1/2" data-aos="fade-left">
           <h3 class="mb-4 text-4xl font-extrabold text-gray-900">Tentang Saya</h3>
           <p class="mb-6 text-lg leading-relaxed text-gray-700">
-            Saya <span class="font-semibold text-blue-600">Your Name</span>, developer yang suka membuat website <span class="text-emerald-600">modern, interaktif, dan high-end</span>.
+            Saya <span class="font-semibold text-blue-600">Firzi Fathir Mas'ud</span>, developer yang suka belajar membuat website <span class="text-emerald-600">modern, interaktif, dan high-end dengan framework Laravel</span>.
           </p>
           <div class="mb-6 flex flex-wrap gap-3">
             <span class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200">Laravel</span>
@@ -293,7 +293,7 @@
             <span class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200">MySQL</span>
             <span class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200">REST API</span>
           </div>
-          <a href="#projects" class="magnetic inline-block rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-white shadow-lg transition hover:scale-105">
+          <a href="#projects" class="magnetic inline-block rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-slate-800 shadow-lg transition hover:scale-105">
             Lihat Project Saya →
           </a>
         </div>
@@ -301,7 +301,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section-gradient-2 relative overflow-hidden py-24 text-gray-900">
+    <!-- <section id="services" class="section-gradient-2 relative overflow-hidden py-24 text-gray-900">
       <div class="mx-auto max-w-6xl px-6 text-center">
         <h3 class="mb-4 text-4xl font-extrabold">Apa yang Bisa Saya Bantu?</h3>
         <p class="mb-12 text-lg text-gray-700">
@@ -331,7 +331,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Projects Section (3 Projects Only) -->
     <section id="projects" class="section-gradient-3 py-24 text-gray-900">
@@ -561,31 +561,31 @@
         el.addEventListener("mouseleave", () => (el.style.transform = "translate(0,0)"));
       });
 
-      // Service Animation Card
-      gsap.from(".service-card", {
-        scrollTrigger: {
-          trigger: "#services",
-          start: "top 30%",
-          toggleActions: "play none none reverse",
-        },
-        opacity: 0,
-        y: 80,
-        scale: 0.8,
-        rotateY: 10,
-        duration: 1.2,
-        stagger: 0.3,
-        ease: "back.out(1.7)",
-        onComplete: () => {
-          document.querySelectorAll(".service-card").forEach((card) => {
-            card.classList.add("glow-effect");
-          });
-          setTimeout(() => {
-            document.querySelectorAll(".service-card").forEach((card) => {
-              card.classList.remove("glow-effect");
-            });
-          }, 1200);
-        },
-      });
+      // // Service Animation Card
+      // gsap.from(".service-card", {
+      //   scrollTrigger: {
+      //     trigger: "#services",
+      //     start: "top 30%",
+      //     toggleActions: "play none none reverse",
+      //   },
+      //   opacity: 0,
+      //   y: 80,
+      //   scale: 0.8,
+      //   rotateY: 10,
+      //   duration: 1.2,
+      //   stagger: 0.3,
+      //   ease: "back.out(1.7)",
+      //   onComplete: () => {
+      //     document.querySelectorAll(".service-card").forEach((card) => {
+      //       card.classList.add("glow-effect");
+      //     });
+      //     setTimeout(() => {
+      //       document.querySelectorAll(".service-card").forEach((card) => {
+      //         card.classList.remove("glow-effect");
+      //       });
+      //     }, 1200);
+      //   },
+      // });
 
       // Tilt Hover Premium
       document.querySelectorAll(".service-card").forEach((card) => {

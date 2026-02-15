@@ -5,339 +5,211 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Firzi</title>
 
-  <!-- Fonts -->
+  <link rel="stylesheet" href="./assets/app-b481d50e.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 
   <style>
     :root {
-      --bg-main: #0a0e27;
-      --bg-section: #0f1729;
-      --bg-card: rgba(255,255,255,0.04);
-      --border-soft: rgba(255,255,255,0.08);
-      --accent: #6366f1;
-      --text-main: #e5e7eb;
-      --text-muted: #a1a1aa;
+      --bg-main:#0a0e27;
+      --bg-dark:#0f1729;
+      --bg-card:rgba(99,102,241,.08);
+      --border-soft:rgba(99,102,241,.18);
+      --accent:#6366f1;
     }
 
-    * {
-      font-family: 'Inter', sans-serif;
-    }
-
-    h1,h2,h3,h4 {
-      font-family: 'Poppins', sans-serif;
-    }
+    * { font-family: Inter, Poppins, sans-serif }
+    h1,h2,h3,h4 { font-family: Poppins, sans-serif }
 
     body {
-      background: var(--bg-main);
-      color: var(--text-main);
-      margin: 0;
+      background:var(--bg-main);
+      color:#e5e7eb;
     }
 
-    section {
-      padding: 96px 24px;
-    }
+    section { position:relative }
 
-    /* ================= NAVBAR ================= */
+    /* NAVBAR */
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 50;
-      background: rgba(10,14,39,0.75);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-soft);
-      transition: all 0.3s ease;
+      background:rgba(15,23,42,.85);
+      border-bottom:1px solid var(--border-soft);
+      backdrop-filter:blur(10px);
+    }
+    .navbar-scrolled {
+      background:rgba(15,23,42,.95);
+      box-shadow:0 8px 30px rgba(0,0,0,.4);
     }
 
-    nav.scrolled {
-      background: rgba(10,14,39,0.95);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    /* GRADIENT SECTIONS */
+    .gradient-animate {
+      background:linear-gradient(135deg,#1a1f3a,#16213e);
+      background-size:400% 400%;
+      animation:gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0%,100%{background-position:0% 50%}
+      50%{background-position:100% 50%}
     }
 
-    .nav-container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .section-gradient-1{background:#0f1729}
+    .section-gradient-3{background:#16213e}
+    .section-gradient-4{background:#0f1729}
+
+    /* FLOATING BACKGROUND */
+    .floating{
+      position:absolute;
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      filter:blur(40px);
+      background:rgba(99,102,241,.07);
+      animation:float 12s ease-in-out infinite;
+    }
+    .floating:nth-child(2){left:70%;top:25%;background:rgba(34,197,94,.07)}
+    .floating:nth-child(3){left:15%;bottom:15%;background:rgba(59,130,246,.07)}
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-30px)}
     }
 
-    nav a {
-      color: var(--text-main);
-      text-decoration: none;
-      margin-left: 24px;
-      font-weight: 500;
-      transition: color 0.2s ease;
+    /* CARDS */
+    .project-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:24px;
+    }
+    .project-card{
+      background:var(--bg-card);
+      border:1px solid var(--border-soft);
+      transition:.3s ease;
+    }
+    .project-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 20px 40px rgba(0,0,0,.35);
     }
 
-    nav a:hover {
-      color: #818cf8;
+    /* SOCIAL */
+    .social-icon{
+      background:rgba(99,102,241,.12);
+      border:1px solid var(--border-soft);
+      transition:.3s ease;
+    }
+    .social-icon:hover{
+      transform:translateY(-4px) scale(1.08);
+      background:rgba(99,102,241,.3);
     }
 
-    /* ================= HERO ================= */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(180deg,#0f1729,#0a0e27);
+    /* FORM */
+    input,textarea{
+      background:rgba(255,255,255,.05)!important;
+      border:1px solid var(--border-soft)!important;
+      color:#e5e7eb!important;
+    }
+    input:focus,textarea:focus{
+      border-color:var(--accent)!important;
+      outline:none;
     }
 
-    .hero h1 {
-      font-size: clamp(3rem,6vw,4.5rem);
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      color: var(--text-muted);
-      max-width: 600px;
-      font-size: 1.1rem;
-    }
-
-    .btn-primary {
-      margin-top: 32px;
-      padding: 14px 32px;
-      border-radius: 999px;
-      background: linear-gradient(135deg,var(--accent),#3b82f6);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 10px 30px rgba(99,102,241,0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(99,102,241,0.45);
-    }
-
-    /* ================= ABOUT ================= */
-    .about {
-      background: var(--bg-section);
-    }
-
-    .about-container {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-
-    .photo-frame {
-      padding: 4px;
-      border-radius: 50%;
-      background: linear-gradient(135deg,var(--accent),#3b82f6);
-      width: 260px;
-      height: 260px;
-      margin: auto;
-    }
-
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .about p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-
-    /* ================= PROJECTS ================= */
-    .projects {
-      background: linear-gradient(180deg,#0a0e27,#0f1729);
-    }
-
-    .project-grid {
-      max-width: 1100px;
-      margin: 64px auto 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-soft);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: transform 0.3s ease, border 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(99,102,241,0.4);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .card-body {
-      padding: 20px;
-    }
-
-    .card-body p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    /* ================= CONTACT ================= */
-    .contact {
-      background: var(--bg-section);
-      text-align: center;
-    }
-
-    form {
-      max-width: 520px;
-      margin: 48px auto 0;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      background: var(--bg-card);
-      padding: 32px;
-      border-radius: 20px;
-      border: 1px solid var(--border-soft);
-      backdrop-filter: blur(10px);
-    }
-
-    input, textarea {
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid var(--border-soft);
-      background: rgba(255,255,255,0.03);
-      color: white;
-      font-size: 0.95rem;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-
-    button {
-      margin-top: 12px;
-      padding: 14px;
-      border-radius: 12px;
-      border: none;
-      background: linear-gradient(135deg,var(--accent),#3b82f6);
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    footer {
-      padding: 24px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    @media(max-width: 900px) {
-      .about-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
+    footer{
+      background:#020617;
+      border-top:1px solid var(--border-soft);
     }
   </style>
 </head>
 
 <body>
 
+<!-- FLOATING -->
+<div class="floating" style="left:10%;top:10%"></div>
+<div class="floating"></div>
+<div class="floating"></div>
+
 <!-- NAVBAR -->
-<nav id="navbar">
-  <div class="nav-container">
-    <strong>DcoXer</strong>
-    <div>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
+<nav id="navbar" class="fixed z-50 w-full transition">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="#heroTitle" class="text-2xl font-bold text-white">DcoXer</a>
+    <ul class="hidden md:flex gap-8 text-sm font-medium text-slate-200">
+      <li><a href="#heroTitle">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="menuToggle" class="md:hidden text-white">☰</button>
+  </div>
+
+  <div id="mobileMenu" class="hidden flex-col bg-slate-900 px-8 py-6 gap-4 md:hidden">
+    <a href="#heroTitle">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero">
-  <h1>Hi, I'm Firzi</h1>
-  <p>Laravel Developer · Tailwind Enthusiast · Building clean and modern web experiences</p>
-  <a href="#projects" class="btn-primary">View My Work</a>
+<section class="gradient-animate min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24">
+  <h1 id="heroTitle" class="text-5xl md:text-7xl font-extrabold text-white">Hi, I'am Firzi</h1>
+  <p class="mt-6 max-w-xl text-gray-400 text-lg">
+    Web Developer (Newbie) | Laravel Enthusiast | Tech Explorer
+  </p>
+  <a href="#projects" class="mt-8 inline-block rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-3 text-white font-semibold">
+    Jelajahi Semua Karya & Proyek Kreatif Saya →
+  </a>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="about">
-  <div class="about-container">
-    <div class="photo-frame" data-aos="fade-right">
-      <img src="./images/foto.png" alt="Firzi">
-    </div>
-    <div data-aos="fade-left">
-      <h2>About Me</h2>
-      <p>
-        I'm Firzi Fathir Mas'ud, a web developer focused on building elegant,
-        maintainable, and performance-driven applications using Laravel
-        and modern frontend tooling.
+<section id="about" class="section-gradient-1 py-24">
+  <div class="mx-auto max-w-6xl grid md:grid-cols-2 gap-12 px-6 items-center">
+    <img src="./images/foto.png" class="mx-auto h-64 w-64 object-cover drop-shadow-2xl" />
+    <div>
+      <h3 class="text-4xl font-bold text-white mb-4">Tentang Saya</h3>
+      <p class="text-gray-300 mb-6">
+        Saya <span class="text-blue-400 font-semibold">Firzi Fathir Mas'ud</span>, developer yang suka belajar membuat website modern dan interaktif.
       </p>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="projects">
-  <h2 style="text-align:center;">Projects</h2>
-  <div class="project-grid">
-    <div class="card">
-      <img src="./images/my_foto.jpg">
-      <div class="card-body">
-        <h4>Project One</h4>
-        <p>Laravel-based system with clean architecture and REST API.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="./images/my_foto.jpg">
-      <div class="card-body">
-        <h4>Project Two</h4>
-        <p>Modern UI built with Tailwind and interactive UX.</p>
+<section id="projects" class="section-gradient-3 py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <h3 class="text-4xl font-bold text-white text-center mb-12">Project Terbaru</h3>
+    <div class="project-grid">
+      <div class="project-card rounded-2xl overflow-hidden">
+        <img src="./images/my_foto.jpg" class="h-48 w-full object-cover" />
+        <div class="p-6">
+          <h4 class="text-xl font-bold text-white">Project 1</h4>
+          <p class="text-gray-400 mt-2">Deskripsi singkat project ini.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>Contact Me</h2>
-  <form>
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea rows="4" placeholder="Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+<section id="contact" class="section-gradient-4 py-24">
+  <div class="max-w-xl mx-auto px-6 text-center">
+    <h3 class="text-4xl font-bold text-white mb-6">Hubungi Saya</h3>
+    <form class="flex flex-col gap-4 bg-white/5 p-8 rounded-2xl">
+      <input placeholder="Nama" />
+      <input placeholder="Email" />
+      <textarea rows="4" placeholder="Pesan"></textarea>
+      <button class="bg-gradient-to-r from-blue-500 to-indigo-600 py-3 rounded-lg text-white font-semibold">
+        Kirim Pesan
+      </button>
+    </form>
+  </div>
 </section>
 
-<footer>
-  © 2025 Firzi Fathir Mas'ud
+<footer class="py-6 text-center text-gray-500">
+  © 2025 Firzi Fathir Masud
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({ once: true, duration: 1000 });
-
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  });
+  AOS.init({ once:true })
+  window.addEventListener("scroll",()=>{
+    navbar.classList.toggle("navbar-scrolled",scrollY>50)
+  })
+  menuToggle.onclick=()=>mobileMenu.classList.toggle("hidden")
 </script>
 
 </body>

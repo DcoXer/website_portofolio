@@ -329,7 +329,7 @@
           <li><a href="#projects" class="magnetic hover:text-blue-400 transition">Projects</a></li>
           <li><a href="#contact" class="magnetic hover:text-blue-400 transition">Contact</a></li>
         </ul>
-        <button id="menuToggle" class="p-2 text-gray-300 focus:outline-none md:hidden">
+        <button id="menuToggle" class="p-2 text-slate-200 focus:outline-none md:hidden">
           <svg id="menuIcon" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -337,12 +337,12 @@
       </div>
 
       <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden origin-top scale-y-0 transform flex-col rounded-b-2xl bg-slate-900/95 backdrop-blur-md px-8 pb-6 opacity-0 shadow-xl transition-all duration-300 border-t border-slate-700">
-        <a href="#heroTitle" class="menu-item border-b border-slate-700 py-3 text-lg font-medium text-gray-300 transition hover:text-blue-400 hover:pl-2">Home</a>
-        <a href="#about" class="menu-item border-b border-slate-700 py-3 text-lg font-medium text-gray-300 transition hover:text-blue-400 hover:pl-2">About</a>
-        <a href="#services" class="menu-item border-b border-slate-700 py-3 text-lg font-medium text-gray-300 transition hover:text-blue-400 hover:pl-2">Services</a>
-        <a href="#projects" class="menu-item border-b border-slate-700 py-3 text-lg font-medium text-gray-300 transition hover:text-blue-400 hover:pl-2">Projects</a>
-        <a href="#contact" class="menu-item py-3 text-lg font-medium text-gray-300 transition hover:text-blue-400 hover:pl-2">Contact</a>
+      <div id="mobileMenu" class="hidden origin-top scale-y-0 transform flex-col rounded-b-2xl bg-slate-900/95 backdrop-blur-md px-8 py-6 gap-4 opacity-0 shadow-xl transition-all duration-300 border-t border-slate-700">
+        <a href="#heroTitle" class="menu-item py-2 text-sm font-medium text-slate-200 transition hover:text-slate-400 hover:pl-2">Home</a>
+        <a href="#about" class="menu-item py-2 text-sm font-medium text-slate-200 transition hover:text-slate-400 hover:pl-2">About</a>
+        <a href="#services" class="menu-item py-2 text-sm font-medium text-slate-200 transition hover:text-slate-400 hover:pl-2">Services</a>
+        <a href="#projects" class="menu-item py-2 text-sm font-medium text-slate-200 transition hover:text-slate-400 hover:pl-2">Projects</a>
+        <a href="#contact" class="menu-item py-2 text-sm font-medium text-slate-200 transition hover:text-slate-400 hover:pl-2">Contact</a>
       </div>
     </nav>
 
@@ -364,8 +364,8 @@
       <canvas id="particleCanvas"></canvas>
       <div class="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 md:flex-row">
         <div class="flex justify-center md:w-1/2" data-aos="fade-right">
-          <div class="block bg-none">
-            <img src="./images/foto.png" alt="My Foto" class="h-64 w-64 object-cover shadow-2xl drop-shadow-xl/50 bg-transparent" />
+          <div class="relative bg-transparent">
+            <img src="./images/foto.png" alt="My Foto" class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-12 z-20 h-64 w-64 object-cover drop-shadow-2xl" />
           </div>
         </div>
         <div class="md:w-1/2" data-aos="fade-left">
@@ -390,7 +390,6 @@
 
     <!-- Projects Section -->
     <section id="projects" class="section-gradient-3 py-24 text-gray-900">
-      <canvas id="particleCanvas"></canvas>
       <div class="relative z-10 mx-auto max-w-6xl px-6">
         <h3 class="mb-4 text-center text-4xl font-extrabold text-white">Project Terbaru</h3>
         <p class="mb-12 text-center text-lg text-gray-400">Showcase beberapa project terbaik saya</p>
@@ -439,7 +438,7 @@
         <p class="mb-12 text-lg text-gray-400">Punya project atau ide? Ayo kolaborasi!</p>
 
         <!-- Social Media -->
-        <div class="mb-12 grid grid-cols-3 gap-4 px-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-4">
+        <div class="mb-12 grid grid-cols-3 gap-4 px-4 pt-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-4">
           <a href="https://github.com/DcoXer" target="_blank" class="social-icon flex items-center justify-center rounded-full p-3 sm:p-4" title="Github">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 .5C5.4.5 0 5.9 0 12.4c0 5.3 3.4 9.8 8.2 11.3.6.1.8-.3.8-.6v-2c-3.3.7-4-1.5-4-1.5-.5-1.1-1.3-1.5-1.3-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6 4.8-1.5 8.2-6 8.2-11.3C23.9 5.9 18.5.5 12 .5z"/>
@@ -487,7 +486,7 @@
 
     <!-- Footer -->
     <footer class="relative overflow-hidden bg-slate-950 py-6 text-center text-gray-400">
-      <p>© 2025 Your Name.dev | All Rights Reserved</p>
+      <p>© 2025 Firzi Fathir Masud | All Rights Reserved</p>
     </footer>
 
     <!-- Scroll Top Button -->
@@ -554,87 +553,87 @@
         });
       }, 3000);
 
-      // Parallax About Image
-      const aboutImg = document.getElementById("aboutImage");
-      window.addEventListener("mousemove", (e) => {
-        const x = (window.innerWidth / 2 - e.clientX) / 50;
-        const y = (window.innerHeight / 2 - e.clientY) / 50;
-        aboutImg.style.transform = `translate(${x}px,${y}px) scale(1.05)`;
-      });
-      aboutImg.addEventListener("mouseleave", () => (aboutImg.style.transform = "translate(0,0) scale(1)"));
+      // // Parallax About Image
+      // const aboutImg = document.getElementById("aboutImage");
+      // window.addEventListener("mousemove", (e) => {
+      //   const x = (window.innerWidth / 2 - e.clientX) / 50;
+      //   const y = (window.innerHeight / 2 - e.clientY) / 50;
+      //   aboutImg.style.transform = `translate(${x}px,${y}px) scale(1.05)`;
+      // });
+      // aboutImg.addEventListener("mouseleave", () => (aboutImg.style.transform = "translate(0,0) scale(1)"));
 
       // Particle Background
-      const canvas = document.getElementById("particleCanvas");
-      if (canvas) {
-        const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = document.getElementById("about").offsetHeight;
-        let particles = [];
-        for (let i = 0; i < 50; i++) {
-          particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 2.5,
-            dx: (Math.random() - 0.5) * 0.3,
-            dy: (Math.random() - 0.5) * 0.3,
-          });
-        }
-        function animateParticles() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.fillStyle = "rgba(99, 102, 241, 0.15)";
-          particles.forEach((p) => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fill();
-            p.x += p.dx;
-            p.y += p.dy;
-            if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-            if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-          });
-          requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-      }
+      // const canvas = document.getElementById("particleCanvas");
+      // if (canvas) {
+      //   const ctx = canvas.getContext("2d");
+      //   canvas.width = window.innerWidth;
+      //   canvas.height = document.getElementById("about").offsetHeight;
+      //   let particles = [];
+      //   for (let i = 0; i < 50; i++) {
+      //     particles.push({
+      //       x: Math.random() * canvas.width,
+      //       y: Math.random() * canvas.height,
+      //       r: Math.random() * 2.5,
+      //       dx: (Math.random() - 0.5) * 0.3,
+      //       dy: (Math.random() - 0.5) * 0.3,
+      //     });
+      //   }
+      //   function animateParticles() {
+      //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+      //     ctx.fillStyle = "rgba(99, 102, 241, 0.15)";
+      //     particles.forEach((p) => {
+      //       ctx.beginPath();
+      //       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      //       ctx.fill();
+      //       p.x += p.dx;
+      //       p.y += p.dy;
+      //       if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+      //       if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      //     });
+      //     requestAnimationFrame(animateParticles);
+      //   }
+      //   animateParticles();
+      // }
 
       // Lazy Load Projects
-      const cards = document.querySelectorAll(".lazy-card");
-      window.addEventListener("scroll", () => {
-        cards.forEach((c) => {
-          const rect = c.getBoundingClientRect();
-          if (rect.top < window.innerHeight - 50) c.classList.add("visible");
-        });
-      });
+      // const cards = document.querySelectorAll(".lazy-card");
+      // window.addEventListener("scroll", () => {
+      //   cards.forEach((c) => {
+      //     const rect = c.getBoundingClientRect();
+      //     if (rect.top < window.innerHeight - 50) c.classList.add("visible");
+      //   });
+      // });
 
-      // Magnetic Cursor
-      document.querySelectorAll(".magnetic").forEach((el) => {
-        el.addEventListener("mousemove", (e) => {
-          const r = el.getBoundingClientRect();
-          const x = (e.clientX - (r.left + r.width / 2)) / 5;
-          const y = (e.clientY - (r.top + r.height / 2)) / 5;
-          el.style.transform = `translate(${x}px,${y}px)`;
-        });
-        el.addEventListener("mouseleave", () => (el.style.transform = "translate(0,0)"));
-      });
+      // // Magnetic Cursor
+      // document.querySelectorAll(".magnetic").forEach((el) => {
+      //   el.addEventListener("mousemove", (e) => {
+      //     const r = el.getBoundingClientRect();
+      //     const x = (e.clientX - (r.left + r.width / 2)) / 5;
+      //     const y = (e.clientY - (r.top + r.height / 2)) / 5;
+      //     el.style.transform = `translate(${x}px,${y}px)`;
+      //   });
+      //   el.addEventListener("mouseleave", () => (el.style.transform = "translate(0,0)"));
+      // });
 
       // Scroll Top Button
-      const scrollBtn = document.getElementById("scrollTopBtn");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          scrollBtn.classList.add("show");
-          scrollBtn.classList.remove("hidden");
-        } else {
-          scrollBtn.classList.remove("show");
-          setTimeout(() => scrollBtn.classList.add("hidden"), 300);
-        }
-      });
+      // const scrollBtn = document.getElementById("scrollTopBtn");
+      // window.addEventListener("scroll", () => {
+      //   if (window.scrollY > 300) {
+      //     scrollBtn.classList.add("show");
+      //     scrollBtn.classList.remove("hidden");
+      //   } else {
+      //     scrollBtn.classList.remove("show");
+      //     setTimeout(() => scrollBtn.classList.add("hidden"), 300);
+      //   }
+      // });
 
-      scrollBtn.addEventListener("click", () => {
-        gsap.to(window, {
-          duration: 1,
-          scrollTo: { y: 0 },
-          ease: "power2.out",
-        });
-      });
+      // scrollBtn.addEventListener("click", () => {
+      //   gsap.to(window, {
+      //     duration: 1,
+      //     scrollTo: { y: 0 },
+      //     ease: "power2.out",
+      //   });
+      // });
 
       // Send To Email
       const contactForm = document.querySelector("form");

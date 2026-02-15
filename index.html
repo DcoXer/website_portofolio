@@ -1,571 +1,344 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Firzi</title>
-    <link rel="stylesheet" href="./assets/app-b481d50e.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Firzi</title>
 
-    <style>
-      * {
-        font-family: 'Inter', 'Poppins', sans-serif;
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-main: #0a0e27;
+      --bg-section: #0f1729;
+      --bg-card: rgba(255,255,255,0.04);
+      --border-soft: rgba(255,255,255,0.08);
+      --accent: #6366f1;
+      --text-main: #e5e7eb;
+      --text-muted: #a1a1aa;
+    }
+
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    h1,h2,h3,h4 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg-main);
+      color: var(--text-main);
+      margin: 0;
+    }
+
+    section {
+      padding: 96px 24px;
+    }
+
+    /* ================= NAVBAR ================= */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+      background: rgba(10,14,39,0.75);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-soft);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(10,14,39,0.95);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-main);
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #818cf8;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(180deg,#0f1729,#0a0e27);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem,6vw,4.5rem);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 600px;
+      font-size: 1.1rem;
+    }
+
+    .btn-primary {
+      margin-top: 32px;
+      padding: 14px 32px;
+      border-radius: 999px;
+      background: linear-gradient(135deg,var(--accent),#3b82f6);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 30px rgba(99,102,241,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(99,102,241,0.45);
+    }
+
+    /* ================= ABOUT ================= */
+    .about {
+      background: var(--bg-section);
+    }
+
+    .about-container {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .photo-frame {
+      padding: 4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,var(--accent),#3b82f6);
+      width: 260px;
+      height: 260px;
+      margin: auto;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ================= PROJECTS ================= */
+    .projects {
+      background: linear-gradient(180deg,#0a0e27,#0f1729);
+    }
+
+    .project-grid {
+      max-width: 1100px;
+      margin: 64px auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(99,102,241,0.4);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ================= CONTACT ================= */
+    .contact {
+      background: var(--bg-section);
+      text-align: center;
+    }
+
+    form {
+      max-width: 520px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: var(--bg-card);
+      padding: 32px;
+      border-radius: 20px;
+      border: 1px solid var(--border-soft);
+      backdrop-filter: blur(10px);
+    }
+
+    input, textarea {
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      background: rgba(255,255,255,0.03);
+      color: white;
+      font-size: 0.95rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg,var(--accent),#3b82f6);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media(max-width: 900px) {
+      .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
+    }
+  </style>
+</head>
 
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-      }
+<body>
 
-      html {
-        scroll-behavior: smooth;
-      }
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-container">
+    <strong>DcoXer</strong>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
 
-      body {
-        background-color: #0a0e27;
-        color: #e0e0e0;
-      }
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>Hi, I'm Firzi</h1>
+  <p>Laravel Developer · Tailwind Enthusiast · Building clean and modern web experiences</p>
+  <a href="#projects" class="btn-primary">View My Work</a>
+</section>
 
-      /* Dark Elegant Navbar */
-      .navbar-scrolled {
-        backdrop-filter: blur(12px);
-        background: rgba(15, 23, 42, 0.95);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        border-bottom: 1px solid rgba(99, 102, 241, 0.1);
-      }
-
-      nav {
-        background: rgba(15, 23, 42, 0.8);
-        border-bottom: 1px solid rgba(99, 102, 241, 0.1);
-      }
-
-      /* Dark Gradient Background */
-      .gradient-animate {
-        background: linear-gradient(135deg, #1a1f3a 0%, #16213e 100%);
-        background-size: 400% 400%;
-        animation: gradientBG 15s ease infinite;
-      }
-
-      @keyframes gradientBG {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-
-      /* Elegant Floating Shapes - Dark Theme */
-      .floating {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        background: rgba(99, 102, 241, 0.05);
-        border-radius: 50%;
-        filter: blur(40px);
-        animation: float 12s infinite ease-in-out;
-      }
-
-      .floating:nth-child(2) {
-        left: 75%;
-        top: 20%;
-        animation-delay: 2s;
-        background: rgba(34, 197, 94, 0.05);
-      }
-
-      .floating:nth-child(3) {
-        left: 15%;
-        bottom: 15%;
-        animation-delay: 4s;
-        background: rgba(59, 130, 246, 0.05);
-      }
-
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-30px); }
-      }
-
-      /* Particle Canvas */
-      #particleCanvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-      }
-
-      /* Smooth Lazy Load */
-      /* .lazy-card {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
-      }
-
-      .lazy-card.visible {
-        opacity: 1;
-        transform: translateY(0);
-      } */
-
-      /* Magnetic Cursor Effect */
-      .magnetic {
-        display: inline-block;
-        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      }
-
-      /* Elegant Image Frame - Dark Theme */
-      .border-gradient {
-        position: relative;
-        display: inline-block;
-        padding: 2px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(59, 130, 246, 0.3));
-        box-shadow: 0 0 30px rgba(99, 102, 241, 0.2), inset 0 0 30px rgba(99, 102, 241, 0.1);
-      }
-
-      /* Modern Glassmorphism - Dark */
-      .glass {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-      }
-
-      /* Elegant Footer */
-      footer {
-        position: relative;
-        overflow: hidden;
-        background: rgba(15, 23, 42, 0.8);
-        border-top: 1px solid rgba(99, 102, 241, 0.1);
-      }
-
-      footer::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -50%;
-        width: 200%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), transparent);
-        animation: footerGlow 4s linear infinite;
-      }
-
-      @keyframes footerGlow {
-        0% { transform: translateX(-50%); }
-        100% { transform: translateX(50%); }
-      }
-
-      /* Glow Effect */
-      .glow-effect {
-        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 40px rgba(59, 130, 246, 0.1);
-        transition: box-shadow 0.6s ease;
-      }
-
-      /* Modern Service Card - Dark */
-      .service-card {
-        opacity: 1;
-        transform-style: preserve-3d;
-        perspective: 1200px;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(99, 102, 241, 0.15);
-        background: rgba(99, 102, 241, 0.05);
-        backdrop-filter: blur(10px);
-      }
-
-      .service-card:hover {
-        box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
-        border-color: rgba(99, 102, 241, 0.4);
-        background: rgba(99, 102, 241, 0.1);
-      }
-
-      /* Elegant Social Icons - Dark */
-      .social-icon {
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        background: rgba(99, 102, 241, 0.08);
-        border: 1px solid rgba(99, 102, 241, 0.2);
-        color: #e0e0e0;
-      }
-
-      .social-icon:hover {
-        background: rgba(99, 102, 241, 0.25);
-        transform: translateY(-4px) scale(1.1);
-        box-shadow: 0 10px 25px rgba(99, 102, 241, 0.25);
-        border-color: rgba(99, 102, 241, 0.5);
-        color: #fff;
-      }
-
-      /* Section Gradients - Dark Theme */
-      .section-gradient-1 {
-        background: linear-gradient(180deg, #0f1729 0%, #1a1f3a 100%);
-      }
-
-      .section-gradient-2 {
-        background: linear-gradient(180deg, #1a1f3a 0%, #16213e 100%);
-      }
-
-      .section-gradient-3 {
-        background: linear-gradient(180deg, #16213e 0%, #0f1729 100%);
-      }
-
-      .section-gradient-4 {
-        background: linear-gradient(180deg, #0f1729 0%, #1a1f3a 100%);
-      }
-
-      /* Smooth Scroll Top Button */
-      #scrollTopBtn {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.3s ease;
-      }
-
-      #scrollTopBtn.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Project Cards Grid */
-      .project-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 24px;
-      }
-
-      .project-card {
-        border: 1px solid rgba(99, 102, 241, 0.15);
-        background: rgba(99, 102, 241, 0.05);
-        backdrop-filter: blur(10px);
-        transition: all 0.3s ease;
-      }
-
-      .project-card:hover {
-        border-color: rgba(99, 102, 241, 0.4);
-        background: rgba(99, 102, 241, 0.1);
-        box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
-      }
-
-      @media (max-width: 768px) {
-        .project-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* Text Colors */
-      .text-gray-900 {
-        color: #e0e0e0;
-      }
-
-      .text-gray-700 {
-        color: #b0b0b0;
-      }
-
-      .text-gray-600 {
-        color: #888888;
-      }
-
-      .text-slate-100 {
-        color: #e8e8e8;
-      }
-
-      .text-slate-800 {
-        color: #0a0e27;
-      }
-
-      /* Input Styling */
-      input, textarea {
-        background: rgba(255, 255, 255, 0.05) !important;
-        color: #e0e0e0 !important;
-        border: 1px solid rgba(99, 102, 241, 0.2) !important;
-      }
-
-      input::placeholder, textarea::placeholder {
-        color: #888888 !important;
-      }
-
-      input:focus, textarea:focus {
-        border-color: rgba(99, 102, 241, 0.5) !important;
-        background: rgba(99, 102, 241, 0.08) !important;
-      }
-
-      /* Button Styling */
-      button[type="submit"] {
-        background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
-        color: #fff;
-      }
-
-      /* Skill Tags */
-      .rounded-full.bg-blue-100 {
-        background: rgba(99, 102, 241, 0.15) !important;
-        color: #93c5fd !important;
-      }
-
-      .rounded-full.bg-blue-100:hover {
-        background: rgba(99, 102, 241, 0.25) !important;
-      }
-    </style>
-  </head>
-  <body class="bg-slate-950 font-sans text-gray-800">
-    <!-- Floating Background Shapes -->
-    <div class="floating" style="left: 10%; top: 10%"></div>
-    <div class="floating"></div>
-    <div class="floating"></div>
-
-    <!-- Modern Navbar -->
-    <nav id="navbar" class="fixed z-50 w-full bg-slate-950 backdrop-blur-md transition-all duration-300">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#heroTitle">
-          <h1 class="magnetic text-2xl font-bold text-slate-200">
-            DcoXer
-          </h1>
-        </a>
-        <ul class="hidden gap-8 font-medium text-slate-200 md:flex">
-          <li><a href="#heroTitle" class="magnetic hover:text-blue-400 transition">Home</a></li>
-          <li><a href="#about" class="magnetic hover:text-blue-400 transition">About</a></li>
-          <li><a href="#services" class="magnetic hover:text-blue-400 transition">Services</a></li>
-          <li><a href="#projects" class="magnetic hover:text-blue-400 transition">Projects</a></li>
-          <li><a href="#contact" class="magnetic hover:text-blue-400 transition">Contact</a></li>
-        </ul>
-        <button id="menuToggle" class="p-2 text-slate-200 focus:outline-none md:hidden">
-          <svg id="menuIcon" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden origin-top scale-y-0 transform flex-col rounded-b-2xl bg-slate-900/95 backdrop-blur-md px-8 py-6 gap-4 opacity-0 shadow-xl transition-all duration-300 border-t border-slate-700/50">
-        <a href="#heroTitle" class="menu-item text-sm font-medium text-slate-200 transition hover:text-slate-400 hover:pl-2">Home</a>
-        <a href="#about" class="menu-item text-sm font-medium text-slate-200 transition hover:text-slate-400 hover:pl-2">About</a>
-        <a href="#services" class="menu-item text-sm font-medium text-slate-200 transition hover:text-slate-400 hover:pl-2">Services</a>
-        <a href="#projects" class="menu-item text-sm font-medium text-slate-200 transition hover:text-slate-400 hover:pl-2">Projects</a>
-        <a href="#contact" class="menu-item text-sm font-medium text-slate-200 transition hover:text-slate-400 hover:pl-2">Contact</a>
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="gradient-animate relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-20 text-center">
-      <h2 id="heroTitle" class="text-5xl font-extrabold text-white drop-shadow-sm md:text-7xl">
-        Hi, I'am Firzi
-      </h2>
-      <p class="mx-auto mt-6 max-w-xl text-lg text-gray-400 md:text-xl">
-        Web Developer (Newbie) | Laravel Enthusiast | Tech Explorer
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="about-container">
+    <div class="photo-frame" data-aos="fade-right">
+      <img src="./images/foto.png" alt="Firzi">
+    </div>
+    <div data-aos="fade-left">
+      <h2>About Me</h2>
+      <p>
+        I'm Firzi Fathir Mas'ud, a web developer focused on building elegant,
+        maintainable, and performance-driven applications using Laravel
+        and modern frontend tooling.
       </p>
-      <a href="#projects" class="magnetic relative z-10 mt-8 inline-block rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition hover:scale-105">
-        Jelajahi Semua Karya & Proyek Kreatif Saya →
-      </a>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="section-gradient-1 relative py-24">
-      <div class="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 md:flex-row">
-        <div class="flex justify-center md:w-1/2" data-aos="fade-right">
-          <div class="relative bg-transparent h-80 flex items-end justify-center">
-            <img src="./images/foto.png" alt="My Foto" class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-12 h-64 w-64 object-cover drop-shadow-2xl" />
-          </div>
-        </div>
-        <div class="md:w-1/2" data-aos="fade-left">
-          <h3 class="mb-4 text-4xl font-extrabold text-white">Tentang Saya</h3>
-          <p class="mb-6 text-lg text-slate-200">
-            Saya <span class="font-semibold text-blue-400">Firzi Fathir Mas'ud</span>, developer yang suka belajar membuat website <span class="text-emerald-400">modern, interaktif, dan high-end dengan teknologi terkini</span>.
-          </p>
-          <div class="mb-6 flex flex-wrap gap-3">
-            <span class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200">Laravel</span>
-            <span class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200">Tailwind CSS</span>
-            <span class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200">GSAP</span>
-            <span class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200">Livewire</span>
-            <span class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200">MySQL</span>
-            <span class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200">REST API</span>
-          </div>
-          <a href="#projects" class="magnetic inline-block rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 px-6 py-3 text-white shadow-lg transition hover:scale-105">
-            Lihat Project Saya →
-          </a>
-        </div>
+<!-- PROJECTS -->
+<section id="projects" class="projects">
+  <h2 style="text-align:center;">Projects</h2>
+  <div class="project-grid">
+    <div class="card">
+      <img src="./images/my_foto.jpg">
+      <div class="card-body">
+        <h4>Project One</h4>
+        <p>Laravel-based system with clean architecture and REST API.</p>
       </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section-gradient-3 py-24 text-gray-900">
-      <div class="relative z-10 mx-auto max-w-6xl px-6">
-        <h3 class="mb-4 text-center text-4xl font-extrabold text-white">Project Terbaru</h3>
-        <p class="mb-12 text-center text-lg text-gray-400">Showcase beberapa project terbaik saya</p>
-        
-        <div class="project-grid">
-          <div class="project-card group rounded-2xl shadow-lg backdrop-blur-md transition hover:shadow-2xl">
-            <div class="relative bg-gradient-to-br from-blue-400 to-indigo-600 h-48">
-              <img src="./images/my_foto.jpg" alt="Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition duration-500" />
-            </div>
-            <div class="p-6 bg-slate-800">
-              <h4 class="text-xl font-bold text-white">Project 1</h4>
-              <p class="mt-2 text-gray-400">Deskripsi singkat project ini yang menjelaskan tentang fitur dan teknologi yang digunakan.</p>
-              <a href="#" class="mt-4 inline-block text-blue-400 font-semibold hover:text-blue-300 transition">Lihat Selengkapnya →</a>
-            </div>
-          </div>
-
-          <div class="project-card group rounded-2xl shadow-lg backdrop-blur-md transition hover:shadow-2xl">
-            <div class="relative bg-gradient-to-br from-emerald-400 to-teal-600 h-48">
-              <img src="./images/my_foto.jpg" alt="Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition duration-500" />
-            </div>
-            <div class="p-6 bg-slate-800">
-              <h4 class="text-xl font-bold text-white">Project 2</h4>
-              <p class="mt-2 text-gray-400">Deskripsi singkat project ini yang menjelaskan tentang fitur dan teknologi yang digunakan.</p>
-              <a href="#" class="mt-4 inline-block text-blue-400 font-semibold hover:text-blue-300 transition">Lihat Selengkapnya →</a>
-            </div>
-          </div>
-
-          <div class="project-card group rounded-2xl shadow-lg backdrop-blur-md transition hover:shadow-2xl">
-            <div class="relative bg-gradient-to-br from-purple-400 to-pink-600 h-48">
-              <img src="./images/my_foto.jpg" alt="Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition duration-500" />
-            </div>
-            <div class="p-6 bg-slate-800">
-              <h4 class="text-xl font-bold text-white">Project 3</h4>
-              <p class="mt-2 text-gray-400">Deskripsi singkat project ini yang menjelaskan tentang fitur dan teknologi yang digunakan.</p>
-              <a href="#" class="mt-4 inline-block text-blue-400 font-semibold hover:text-blue-300 transition">Lihat Selengkapnya →</a>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="card">
+      <img src="./images/my_foto.jpg">
+      <div class="card-body">
+        <h4>Project Two</h4>
+        <p>Modern UI built with Tailwind and interactive UX.</p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-gradient-4 py-24 text-gray-900">
-      <div class="mx-auto max-w-3xl px-6 text-center">
-        <h3 class="mb-6 text-4xl font-extrabold text-white">Hubungi Saya</h3>
-        <p class="mb-12 text-lg text-gray-400">Punya project atau ide? Ayo kolaborasi!</p>
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="4" placeholder="Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
 
-        <!-- Social Media -->
-        <div class="mb-12 grid grid-cols-3 gap-4 px-4 pt-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-4">
-          <a href="https://github.com/DcoXer" target="_blank" class="social-icon flex items-center justify-center rounded-full p-3 sm:p-4" title="Github">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 .5C5.4.5 0 5.9 0 12.4c0 5.3 3.4 9.8 8.2 11.3.6.1.8-.3.8-.6v-2c-3.3.7-4-1.5-4-1.5-.5-1.1-1.3-1.5-1.3-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6 4.8-1.5 8.2-6 8.2-11.3C23.9 5.9 18.5.5 12 .5z"/>
-            </svg>
-          </a>
-          <a href="https://linkedin.com/in/#" target="_blank" class="social-icon flex items-center justify-center rounded-full p-3 sm:p-4" title="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a2.6 2.6 0 012.4-1.4c1.9 0 3.36 1.2 3.36 3.88z"/>
-            </svg>
-          </a>
-          <a href="https://instagram.com/#" target="_blank" class="social-icon flex items-center justify-center rounded-full p-3 sm:p-4" title="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9A5.5 5.5 0 0116.5 22h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2m0 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9A3.5 3.5 0 0020 16.5v-9A3.5 3.5 0 0016.5 4h-9zm4.5 5a4 4 0 110 8 4 4 0 010-8zm0 2a2 2 0 100 4 2 2 0 000-4zm5-4.5a.875.875 0 110 1.75.875.875 0 010-1.75z"/>
-            </svg>
-          </a>
-          <a href="https://facebook.com/#" target="_blank" class="social-icon flex items-center justify-center rounded-full p-3 sm:p-4" title="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
-          <a href="https://youtube.com/#" target="_blank" class="social-icon flex items-center justify-center rounded-full p-3 sm:p-4" title="YouTube">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
-          </a>
-          <a href="https://wa.me/#" target="_blank" class="social-icon flex items-center justify-center rounded-full p-3 sm:p-4" title="WhatsApp">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.713-1.653-2.011-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a6.963 6.963 0 00-6.952 6.951c0 1.539.4 3.039 1.158 4.359L2.98 21.863l4.783-1.256a6.965 6.965 0 004.194 1.348h.004c3.857 0 6.996-3.139 6.996-6.997 0-1.869-.723-3.627-2.036-4.947-1.314-1.318-3.078-2.046-4.947-2.046"/>
-            </svg>
-          </a>
-        </div>
+<footer>
+  © 2025 Firzi Fathir Mas'ud
+</footer>
 
-        <!-- Contact Form -->
-        <form action="http://localhost/contact/send-ajax" method="POST" class="glass mx-auto flex max-w-xl flex-col gap-4 p-8 rounded-2xl">
-          <input type="hidden" name="_token" value="8qoH77SWTqI4YZlzcjUi1lfQvwJysjKD7nBl40s6" autocomplete="off" />
-          <input type="text" name="name" placeholder="Nama" class="rounded-lg bg-white/40 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
-          <input type="email" name="email" placeholder="Email" class="rounded-lg bg-white/40 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
-          <textarea name="message" rows="5" placeholder="Pesan" class="rounded-lg bg-white/40 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" required></textarea>
-          <button type="submit" class="magnetic rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 px-6 py-3 font-semibold text-white shadow-lg transition hover:scale-105 hover:shadow-xl">
-            Kirim Pesan
-          </button>
-        </form>
-      </div>
-    </section>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ once: true, duration: 1000 });
 
-    <!-- Footer -->
-    <footer class="relative overflow-hidden bg-slate-950 py-6 text-center text-gray-400">
-      <p>© 2025 Firzi Fathir Masud | All Rights Reserved</p>
-    </footer>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
 
-    <!-- Scroll Top Button -->
-    <button id="scrollTopBtn" class="fixed bottom-6 right-6 z-50 hidden rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 p-3 shadow-lg transition hover:scale-110 hover:shadow-xl">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-      </svg>
-    </button>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script src="./assets/app-478fd0a3.js"></script>
-    <script>
-      AOS.init({ duration: 1400, once: true });
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Navbar Scroll
-      document.addEventListener("scroll", () => {
-        document.getElementById("navbar").classList.toggle("navbar-scrolled", window.scrollY > 50);
-      });
-
-      // Mobile Menu
-      const menuToggle = document.getElementById("menuToggle");
-      const mobileMenu = document.getElementById("mobileMenu");
-
-      menuToggle.addEventListener("click", () => {
-        if (mobileMenu.classList.contains("hidden")) {
-          mobileMenu.classList.remove("hidden");
-          setTimeout(() => {
-            mobileMenu.classList.remove("scale-y-0", "opacity-0");
-            mobileMenu.classList.add("scale-y-100", "opacity-100");
-          }, 10);
-
-          document.querySelectorAll("#mobileMenu .menu-item").forEach((item, i) => {
-            item.style.opacity = "0";
-            item.style.transform = "translateX(-10px)";
-            setTimeout(() => {
-              item.style.opacity = "1";
-              item.style.transform = "translateX(0)";
-              item.style.transition = "all 0.3s ease";
-            }, 100 * i);
-          });
-        } else {
-          mobileMenu.classList.add("scale-y-0", "opacity-0");
-          setTimeout(() => mobileMenu.classList.add("hidden"), 300);
-        }
-      });
-
-      // Hero Text Morph
-      const texts = ["Hi, I'm Firzi", "Laravel Developer", "Tailwind Enthusiast", "Creative Web Dev"];
-      let i = 0;
-      setInterval(() => {
-        gsap.to("#heroTitle", {
-          opacity: 0,
-          duration: 0.5,
-          onComplete: () => {
-            i = (i + 1) % texts.length;
-            document.getElementById("heroTitle").textContent = texts[i];
-            gsap.to("#heroTitle", { opacity: 1, duration: 0.5 });
-          },
-        });
-      }, 3000);
-
-      // Send To Email
-      const contactForm = document.querySelector("form");
-      if (contactForm) {
-        contactForm.addEventListener("submit", async function (e) {
-          e.preventDefault();
-          const form = e.target;
-          const formData = new FormData(form);
-
-          const response = await fetch("http://localhost/contact/send-ajax", {
-            method: "POST",
-            headers: { "X-CSRF-TOKEN": "8qoH77SWTqI4YZlzcjUi1lfQvwJysjKD7nBl40s6" },
-            body: formData,
-          });
-
-          const result = await response.json();
-          if (result.success) {
-            form.reset();
-            alert("Pesan berhasil dikirim!");
-          }
-        });
-      }
-    </script>
-  </body>
+</body>
 </html>

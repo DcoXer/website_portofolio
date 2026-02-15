@@ -316,7 +316,7 @@
             DcoXer
           </h1>
         </a>
-        <ul class="hidden gap-8 font-medium text-slate-300 md:flex">
+        <ul class="hidden gap-8 font-medium text-slate-200 md:flex">
           <li><a href="#heroTitle" class="magnetic hover:text-blue-400 transition">Home</a></li>
           <li><a href="#about" class="magnetic hover:text-blue-400 transition">About</a></li>
           <li><a href="#services" class="magnetic hover:text-blue-400 transition">Services</a></li>
@@ -546,88 +546,6 @@
           },
         });
       }, 3000);
-
-      // // Parallax About Image
-      // const aboutImg = document.getElementById("aboutImage");
-      // window.addEventListener("mousemove", (e) => {
-      //   const x = (window.innerWidth / 2 - e.clientX) / 50;
-      //   const y = (window.innerHeight / 2 - e.clientY) / 50;
-      //   aboutImg.style.transform = `translate(${x}px,${y}px) scale(1.05)`;
-      // });
-      // aboutImg.addEventListener("mouseleave", () => (aboutImg.style.transform = "translate(0,0) scale(1)"));
-
-      // Particle Background
-      // const canvas = document.getElementById("particleCanvas");
-      // if (canvas) {
-      //   const ctx = canvas.getContext("2d");
-      //   canvas.width = window.innerWidth;
-      //   canvas.height = document.getElementById("about").offsetHeight;
-      //   let particles = [];
-      //   for (let i = 0; i < 50; i++) {
-      //     particles.push({
-      //       x: Math.random() * canvas.width,
-      //       y: Math.random() * canvas.height,
-      //       r: Math.random() * 2.5,
-      //       dx: (Math.random() - 0.5) * 0.3,
-      //       dy: (Math.random() - 0.5) * 0.3,
-      //     });
-      //   }
-      //   function animateParticles() {
-      //     ctx.clearRect(0, 0, canvas.width, canvas.height);
-      //     ctx.fillStyle = "rgba(99, 102, 241, 0.15)";
-      //     particles.forEach((p) => {
-      //       ctx.beginPath();
-      //       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      //       ctx.fill();
-      //       p.x += p.dx;
-      //       p.y += p.dy;
-      //       if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-      //       if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      //     });
-      //     requestAnimationFrame(animateParticles);
-      //   }
-      //   animateParticles();
-      // }
-
-      // Lazy Load Projects
-      // const cards = document.querySelectorAll(".lazy-card");
-      // window.addEventListener("scroll", () => {
-      //   cards.forEach((c) => {
-      //     const rect = c.getBoundingClientRect();
-      //     if (rect.top < window.innerHeight - 50) c.classList.add("visible");
-      //   });
-      // });
-
-      // // Magnetic Cursor
-      // document.querySelectorAll(".magnetic").forEach((el) => {
-      //   el.addEventListener("mousemove", (e) => {
-      //     const r = el.getBoundingClientRect();
-      //     const x = (e.clientX - (r.left + r.width / 2)) / 5;
-      //     const y = (e.clientY - (r.top + r.height / 2)) / 5;
-      //     el.style.transform = `translate(${x}px,${y}px)`;
-      //   });
-      //   el.addEventListener("mouseleave", () => (el.style.transform = "translate(0,0)"));
-      // });
-
-      // Scroll Top Button
-      // const scrollBtn = document.getElementById("scrollTopBtn");
-      // window.addEventListener("scroll", () => {
-      //   if (window.scrollY > 300) {
-      //     scrollBtn.classList.add("show");
-      //     scrollBtn.classList.remove("hidden");
-      //   } else {
-      //     scrollBtn.classList.remove("show");
-      //     setTimeout(() => scrollBtn.classList.add("hidden"), 300);
-      //   }
-      // });
-
-      // scrollBtn.addEventListener("click", () => {
-      //   gsap.to(window, {
-      //     duration: 1,
-      //     scrollTo: { y: 0 },
-      //     ease: "power2.out",
-      //   });
-      // });
 
       // Send To Email
       const contactForm = document.querySelector("form");
